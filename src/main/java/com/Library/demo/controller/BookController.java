@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.Library.demo.api.BookApi;
 import com.Library.demo.model.Book;
@@ -24,7 +25,7 @@ public class BookController implements BookApi {
 	
 	@PostMapping
 	@Override
-	public ResponseEntity<Book> addBook(Book book) {
+	public ResponseEntity<Book> addBook(@RequestBody Book book) {
 		return new ResponseEntity<>(bookService.add(book), HttpStatus.CREATED);
 	}
 
